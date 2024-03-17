@@ -11,13 +11,34 @@
         />
 
         <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="prism.css" />
+        <link rel="stylesheet" href="prism2.css" />
         <title>Code Snippets - Javascript</title>
     </head>
     <body class="lato-regular">
         <h1>Javascript Snippets</h1>
 
         <div id="js1">
+            <h2>Javascript Basics</h2>
+            <h3>Printing to Console</h3>
+            <ul>
+                <pre><code>console.log()</code></pre>
+            </ul>
+            <h3>Comments</h3>
+                <ul>
+                    <li class="title">Single Line Comment</li>
+
+                    <pre><code>// This is a comment</code></pre>
+                    <li class="title">Multiline Comment</li>
+                    <pre><code>/*
+This
+is
+a
+multiline
+comment
+*/</code></pre>
+                </ul>
+                <h3>Functions</h3>
+            </ul>
             <h3>
                 Selecting from an array of tags, then adding a class to each of
                 them.
@@ -37,65 +58,47 @@
                         I need to make an array of the tags I am looking for.
                     </li>
                     <pre>
-                        <code>
-            var Hs = ["h1", "h3"];
-                        </code>
-                    </pre>
+<code>var Hs = ["h1", "h3"];</code></pre>
                     <li>
                         I need to iterate through each of these tags, that are
                         now part of an array(Node List)
                     </li>
                     <pre>
-                        <code>
-            for (let i = 0; i &lt; Hs.length; i++) {
-                var hs = Hs[i];
-            };
-                        </code>
-                    </pre>
+<code>for (let i = 0; i &lt; Hs.length; i++) {
+    var hs = Hs[i];
+};</code></pre>
                     <li>
                         I need to find all the tags that match the items in my
                         array.
                     </li>
                     <pre>
-                        <code>
-            var h = document.querySelectorAll(hs);
-                        </code>
-                    </pre>
+<code>var h = document.querySelectorAll(hs);</code></pre>
                     <li>
                         I need to make a function that will toggle on the
                         classes I want to show up on the tags.
                     </li>
                     <pre>
-                        <code>
-            function colorRed(element) {
-                element.classList.toggle("oswald-font");
-                element.classList.toggle("green");
-            }
-                        </code>
-                    </pre>
+<code>function colorRed(element) {
+    element.classList.toggle("oswald-font");
+    element.classList.toggle("green");
+}</code></pre>
                     <li>I need to toggle a class on to each of the tags.</li>
                     <pre>
-                        <code>
-            h.forEach(colorRed);
-                    </code>
-                </pre>
+<code>h.forEach(colorRed);</code></pre>
                 </ol>
             </div>
             <pre>
-                <code>
-            var Hs = ["h1", "h3"];
-            for (let i = 0; i < Hs.length; i++) {
-                var hs = Hs[i];
-                var h = document.querySelectorAll(hs);
-            
-                function colorRed(element) {
-            element.classList.toggle("oswald-font");
-            element.classList.toggle("green");
-                }
-                h.forEach(colorRed);
-            }
-                </code>
-            </pre>
+<code>var Hs = ["h1", "h3"];
+for (let i = 0; i &lt; Hs.length; i++) {
+    var hs = Hs[i];
+    var h = document.querySelectorAll(hs);
+
+    function colorRed(element) {
+element.classList.toggle("oswald-font");
+element.classList.toggle("green");
+    }
+    h.forEach(colorRed);
+}</code></pre>
         </div>
         <!-- Through GitHub -->
         <!-- <script src="https://nzscode.github.io/Snippets-Javascript/snippets-javascript.js"></script>
@@ -105,11 +108,3 @@
         <script src="prism.js"></script>
     </body>
 </html>
-
-<h3>Printing</h3>
-<pre><code>
-hello = "Hello"
-    print(hello)
-            </code></pre>
-<pre><code># Output:
-hello</code></pre>
