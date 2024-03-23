@@ -38,47 +38,106 @@ comment
 */</code></pre>
             </ul>
             <h2>DOM</h2>
+            Sample HTML Code
+            <pre>
+<code>&lt;body&gt;
+    &lt;div id="first-section"&gt;
+        &lt;h1&gt;This will be the Main title&lt;/h1&gt;
+        &lt;p&gt;uuuuu&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="container"&gt;
+        A Container Class
+        &lt;p&gt;Para 1&lt;/p&gt;
+        &lt;p&gt;Para 2&lt;/p&gt;
+        &lt;p id="P1"&gt;Para 3&lt;/p>
+        &lt;p class="par"&gt;Para 4&lt;/p&gt;
+        &lt;p class="par"&gt;Para 5&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="container"&gt;Lorem ipsum dolor sit amet.&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ul&gt;
+            This is an unordered list
+            &lt;li&gt;Item 1&lt;/li&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;x&lt;/li&gt;
+                    &lt;li&gt;y&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;li&gt;Item 2&lt;/li&gt;
+            &lt;li&gt;Item 3&lt;/li&gt;
+            &lt;li&gt;Item 4&lt;/li&gt;
+            &lt;li&gt;Item 5&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/body&gt;</code></pre>
             <ul>
                 <h3>Finding HTML Elements</h3>
                 <ul>
-                    Sample HTML Code
-                    <pre>
-<code>&lt;body&gt;
-        &lt;div id="first-section"&gt;
-            &lt;h1>This will be the main title&lt;/h1&gt;
-        &lt;/div&gt;
-    &lt;div class="container"&gt;
-            &lt;p&gt;
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem, laboriosam!
-            &lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class="container">Lorem ipsum dolor sit amet.&lt;/div&gt;
-        &lt;div&gt;
-            &lt;ul&gt;
-                This is an unordered list
-                &lt;li>Item 1&lt;/li&gt;
-                &lt;li>Item 2&lt;/li&gt;
-                &lt;li>Item 3&lt;/li&gt;
-                &lt;li>Item 4&lt;/li&gt;
-                &lt;li>Item 5&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/div&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                    <li>
+                        If a Collection or Node List is returned:
+                        <br />(Node List - Items can only be accessed by Index
+                        Number) <br />(Collection - Items can be accessed by
+                        name, id, or index number)
+                        <ul>
+                            <li>
+                                You must iterate throught the list to change
+                                anything.
+                            </li>
+                            <li>
+                                When a parent element is changed it collapses
+                                all child elements, and changes the parent
+                                element.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
                     <li>document.getElementByID(id)</li>
-                    <pre><code>let x = document.getElementById("first-section");
-console.log(x)</code></pre>
+                    <ul>
+                        <li>Always Unique will return 1 item.</li>
+                    </ul>
+                    <pre><code>let _id = document.getElementById("first-section");
+console.log(_id)</code></pre>
                     <pre><code class="output"># Output:
-</code></pre>
+&lt;div id="first-section"&gt;
+            &lt;h1&gt;This will be the main title&lt;/h1&gt;
+        &lt;/div&gt;</code></pre>
                     <li>document.getElementsByTagName</li>
+                    <ul>
+                        <li>Returns an HTML Collection (a live list)</li>
+                    </ul>
                     <pre>
-<code>let x = document.getElementsByTagName("ul");
-    console.log(x);</code></pre>
+<code>let _tagNameList = document.getElementsByTagName("ul");
+    console.log(_tagNameList);</code></pre>
+                    <pre><code class="output"># Output :
+HTMLCollection [ul]</code></pre>
                     <li>document.getElementsByClassName()</li>
+                    <ul>
+                        <li>Returns an HTML Collection (a live list)</li>
+                    </ul>
                     <pre>
-<code>let x = document.getElementsByClassName("container");
-console.log(x);</code></pre>
+<code>let _classNameList = document.getElementsByClassName("container");
+console.log(_classNameList);</code></pre>
+                    <pre><code class="output"># Output:
+HTMLCollection(2) [div.container, div.container]</code></pre>
+                </ul>
+                <h3>Changing HTML Elements</h3>
+                <ul>
+                    <li>element.innerHTML = new html content</li>
+                    <pre>
+<code>let _id = document.getElementById("first-section");
+_id.innerHTML = "Hello";
+
+let _tagNameList = document.getElementsByTagName("p");
+for (let i = 0; i &lt; _tagNameList.length; i++) {
+    let e = _tagNameList[i];
+    e.innerHTML = "Hola";
+}
+
+let _classList = document.getElementsByClassName("container");
+for (let i = 0; i &lt; _classList.length; i++) {
+    let e = _classList[i];
+    e.innerHTML = "Hi";
+}</code></pre>
                 </ul>
 
                 <h3>Output</h3>
