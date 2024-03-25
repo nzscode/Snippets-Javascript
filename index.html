@@ -91,29 +91,29 @@ comment
                     </li>
                 </ul>
                 <ul>
-                    <li>document.getElementByID(id)</li>
-                    <ul>
-                        <li>Always Unique will return 1 item.</li>
-                    </ul>
+                    <li>.getElementById = Always Unique will return 1 item.</li>
+                    <li>
+                        .getElementsByTagName = Returns an HTML Collection (a
+                        live list)
+                    </li>
+                    <li>
+                        .getElementsByClassName() = Returns an HTML Collection
+                        (a live list)
+                    </li>
+
                     <pre><code>let _id = document.getElementById("first-section");
 console.log(_id)</code></pre>
                     <pre><code class="output"># Output:
 &lt;div id="first-section"&gt;
             &lt;h1&gt;This will be the main title&lt;/h1&gt;
         &lt;/div&gt;</code></pre>
-                    <li>document.getElementsByTagName</li>
-                    <ul>
-                        <li>Returns an HTML Collection (a live list)</li>
-                    </ul>
+
                     <pre>
 <code>let _tagNameList = document.getElementsByTagName("ul");
     console.log(_tagNameList);</code></pre>
                     <pre><code class="output"># Output :
 HTMLCollection [ul]</code></pre>
-                    <li>document.getElementsByClassName()</li>
-                    <ul>
-                        <li>Returns an HTML Collection (a live list)</li>
-                    </ul>
+
                     <pre>
 <code>let _classNameList = document.getElementsByClassName("container");
 console.log(_classNameList);</code></pre>
@@ -126,18 +126,50 @@ HTMLCollection(2) [div.container, div.container]</code></pre>
                     <pre>
 <code>let _id = document.getElementById("first-section");
 _id.innerHTML = "Hello";
+console.log(_id.innerHTML);
 
 let _tagNameList = document.getElementsByTagName("p");
 for (let i = 0; i &lt; _tagNameList.length; i++) {
     let e = _tagNameList[i];
     e.innerHTML = "Hola";
+    console.log(e.innerHTML);
 }
 
 let _classList = document.getElementsByClassName("container");
 for (let i = 0; i &lt; _classList.length; i++) {
     let e = _classList[i];
     e.innerHTML = "Hi";
+    console.log(e.innerHTML);
 }</code></pre>
+                    <pre><code class="output"># Output:
+Hello
+5 Hola
+Hi</code></pre>
+                </ul>
+                <h3>Writing Directly to the HTML Element</h3>
+                <ul>
+                    <pre>
+<code>document.write("elephant");</code></pre>
+                </ul>
+                <h3>Changing the Value of an Attribute</h3>
+                <ul>
+                    <li>Changes the value of the attribute.</li>
+                    <li>
+                        Changing a style attribute:
+                        <ul>
+                            <li>
+                                The "p" value has a background color of green,
+                                set by the css, we will change it to blue using
+                                JS.
+                            </li>
+                            <pre>
+<code>let paraList = document.getElementsByTagName("p");
+for (let i = 0; i < paraList.length; i++) {
+    const p = paraList[i];
+    p.style.backgroundColor = "blue";
+}</code></pre>
+                        </ul>
+                    </li>
                 </ul>
 
                 <h3>Output</h3>
